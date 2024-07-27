@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { useContactForm } from "../hooks/useContactForm"; // Importar el hook personalizado
-import Image from "next/image"; // Importar el componente Image de Next.js
+import { useContactForm } from "../hooks/useContactForm";
+import Image from "next/image"; 
 
 const ContactForm: React.FC = () => {
   const {
@@ -12,7 +12,8 @@ const ContactForm: React.FC = () => {
     successMessageRef,
     handleChange,
     handleSubmit,
-  } = useContactForm(); // Usar el hook personalizado
+    isSubmitting,
+  } = useContactForm(); 
 
   return (
     <div className="bg-primary-200 min-h-screen flex justify-center items-center w-full relative">
@@ -20,7 +21,7 @@ const ContactForm: React.FC = () => {
         <div
           ref={successMessageRef}
           tabIndex={-1}
-          className="absolute top-4 w-full text-left p-5 bg-success max-w-96 text-white rounded-xl"
+          className="absolute top-8 w-full text-left p-5 bg-success max-w-96 text-white rounded-xl"
         >
           <div className="flex gap-1 items-center">
             <div className="flex justify-center items-center">
@@ -253,8 +254,9 @@ const ContactForm: React.FC = () => {
           <button
             className="w-full p-2 bg-primary-600 hover:bg-emerald-800 text-white rounded mt-4"
             type="submit"
+            disabled={isSubmitting} // Deshabilitar el botón mientras se envía
           >
-            Submit
+            {isSubmitting ? "Sending..." : "Submit"} 
           </button>
         </form>
       </div>
