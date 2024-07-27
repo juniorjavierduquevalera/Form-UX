@@ -21,7 +21,7 @@ const ContactForm: React.FC = () => {
         <div
           ref={successMessageRef}
           tabIndex={-1}
-          className="absolute top-8 w-full text-left p-5 bg-success max-w-96 text-white rounded-xl"
+          className="absolute top-4 w-full text-left p-5 bg-success max-w-96 text-white rounded-xl"
         >
           <div className="flex gap-1 items-center">
             <div className="flex justify-center items-center">
